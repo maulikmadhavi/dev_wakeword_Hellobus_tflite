@@ -265,7 +265,7 @@ def create_conv_model(fingerprint_input, model_settings, is_training, is_transfe
   if is_transfer:
       set_trainable=False
       import numpy as np
-      container = np.load('tmp/pretrained_model/pretrained_numpy_weights.npz')
+      container = np.load('tmp/pretrained_model/pretrained_numpy_weights_1400duration.npz')
       npweights = [container[key] for key in container]
 
       first_weights = tf.compat.v1.get_variable(

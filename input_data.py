@@ -458,6 +458,7 @@ class AudioProcessor(object):
             dct_coefficient_count=model_settings['fingerprint_width'])
         tf.compat.v1.summary.image(
             'mfcc', tf.expand_dims(self.output_, -1), max_outputs=1)
+        tf.compat.v1.summary.histogram("MFCC_Histogram", tf.expand_dims(self.output_, -1))
       elif model_settings['preprocess'] == 'micro':
         if not frontend_op:
           raise Exception(
