@@ -157,6 +157,7 @@ public class RecognizeCommands {
     for (Pair<Long, float[]> previousResult : previousResults) {
       final float[] scoresTensor = previousResult.second;
       int i = 0;
+      Log.v("ScoreTensor",scoresTensor.toString());
       while (i < scoresTensor.length) {
         averageScores[i] += scoresTensor[i] / howManyResults;
         ++i;

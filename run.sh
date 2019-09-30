@@ -60,7 +60,8 @@ wanted_words_list='busagent,hellobus,okagent,okbus'
 /home/maulik/anaconda3/bin/python3 freeze.py \
 --start_checkpoint=tmp/speech_commands_train_transfer/conv.ckpt-300 \
 --output_file=tmp/speech_commands_train_transfer/my_frozen_graph.pb \
---wanted_words=busagent,hellobus,okagent,okbus
+--wanted_words=busagent,hellobus,okagent,okbus \
+--clip_duration_ms=1400
 
 
 /home/maulik/anaconda3/bin/python3 label_wav.py \
