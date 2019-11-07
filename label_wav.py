@@ -73,7 +73,8 @@ def run_graph(wav_data, labels, input_layer_name, output_layer_name,
       human_string = labels[node_id]
       score = predictions[node_id]
       print('%s (score = %.5f)' % (human_string, score))
-
+    print('******')
+    print(labels)
     return 0
 
 
@@ -126,7 +127,7 @@ if __name__ == '__main__':
   parser.add_argument(
       '--how_many_labels',
       type=int,
-      default=3,
+      default=6,
       help='Number of results to show.')
 
   FLAGS, unparsed = parser.parse_known_args()

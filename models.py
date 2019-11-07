@@ -93,6 +93,12 @@ def prepare_model_settings(label_count, sample_rate, clip_duration_ms,
   }
 
 
+
+
+
+
+
+
 def create_model(fingerprint_input, model_settings, model_architecture,
                  is_training, is_transfer=False, runtime_settings=None):
   """Builds a model of the requested architecture compatible with the settings.

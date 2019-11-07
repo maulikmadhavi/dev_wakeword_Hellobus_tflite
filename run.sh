@@ -53,7 +53,7 @@ wanted_words_list='busagent,hellobus,okagent,okbus'
 # ! careful ! small examples for wanted words
 # python train.py --wanted_words=${wanted_words_list} --data_dir=${datadir} -batch_size=20 --save_step_interval=50 --how_many_training_steps=400,100
 
-/home/maulik/anaconda3/bin/python3 pretrained_pb2npz.py
+#/home/maulik/anaconda3/bin/python3 pretrained_pb2npz.py
 
 /home/maulik/anaconda3/bin/python3 transfer.py
 

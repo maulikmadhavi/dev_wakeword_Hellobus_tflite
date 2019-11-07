@@ -116,6 +116,8 @@ def main(_):
   # 10,000, and 0.0001 for the final 3,000.
   training_steps_list = list(map(int, FLAGS.how_many_training_steps.split(',')))
   learning_rates_list = list(map(float, FLAGS.learning_rate.split(',')))
+  true_scores = []
+  false_scores = []
   if len(training_steps_list) != len(learning_rates_list):
     raise Exception(
         '--how_many_training_steps and --learning_rate must be equal length '
@@ -162,6 +164,8 @@ def main(_):
     train_step = tf.compat.v1.train.GradientDescentOptimizer(
         learning_rate_input).minimize(cross_entropy_mean)
   predicted_indices = tf.argmax(input=logits, axis=1)
+  scores = tf.nn.softmax(logits, axis=1)
+  # true_scores = scores[ground_truth_input]
   correct_prediction = tf.equal(predicted_indices, ground_truth_input)
   confusion_matrix = tf.math.confusion_matrix(labels=ground_truth_input,
                                               predictions=predicted_indices,
@@ -222,10 +226,11 @@ def main(_):
         FLAGS.batch_size, 0, model_settings, FLAGS.background_frequency,
         FLAGS.background_volume, time_shift_samples, 'training', sess)
     # Run the graph with this batch of training data.
-    train_summary, train_accuracy, cross_entropy_value, _, _ = sess.run(
+    train_summary, train_accuracy, ts,  cross_entropy_value, _, step_ind = sess.run(
         [
             merged_summaries,
             evaluation_step,
+            scores,
             cross_entropy_mean,
             train_step,
             increment_global_step,
@@ -236,6 +241,14 @@ def main(_):
             learning_rate_input: learning_rate_value,
             dropout_prob: 0.5
         })
+    if step_ind>=400:
+      for var1 in range(len(ts)):
+        for var2 in range(6):
+          if var2 == train_ground_truth[var1]:
+            true_scores.append(ts[var1][var2])
+          else:
+            false_scores.append(ts[var1][var2])
+
     train_writer.add_summary(train_summary, training_step)
     tf.compat.v1.logging.info(
         'Step #%d: rate %f, accuracy %.1f%%, cross entropy %f' %
@@ -302,7 +315,7 @@ def main(_):
   tf.compat.v1.logging.info('Confusion Matrix:\n %s' % (total_conf_matrix))
   tf.compat.v1.logging.info('Final test accuracy = %.1f%% (N=%d)' %
                             (total_accuracy * 100, set_size))
-
+  np.savez('scores.npz',*[np.array(true_scores),np.array(false_scores)])
 
 if __name__ == '__main__':
   parser = argparse.ArgumentParser()
@@ -486,4 +499,5 @@ if __name__ == '__main__':
       help='Log verbosity. Can be "INFO", "DEBUG", "ERROR", "FATAL", or "WARN"')
 
   FLAGS, unparsed = parser.parse_known_args()
+  print(sys.argv[0])
   tf.compat.v1.app.run(main=main, argv=[sys.argv[0]] + unparsed)
