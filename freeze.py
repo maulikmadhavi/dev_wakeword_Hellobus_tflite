@@ -151,15 +151,17 @@ def create_inference_graph(wanted_words, sample_rate, clip_duration_ms,
 
   # Create an output to use for inference.
   print(logits)
-  matop = tf.constant([[1.0,0,0,0,0,0],[0,1,0,0,0,0],[0,0,1.0,1,1,1],[0,0,0,1.0,0,0],[0,0,0,0,1,0],[0,0,0,0,0,1]])
+  matop = tf.constant([[1.0,0,0,0,0,0],[0,1,0,0,0,0],[0,0,1.0,0,1,0],[0,0,0,1.0,0,0],[0,0,1,0,1,0],[0,0,1,0,0,1]])
   
   # tf.assign(logits[2],ll)
   ls = tf.nn.softmax(logits, name='labels_softmax_old')
   out = tf.matmul(ls, tf.transpose(matop), name='labels_softmax')
+  print(out)
   with tf.Session() as sess:
     writer = tf.summary.FileWriter("output", sess.graph)
     # print(sess.run(h))
     writer.close()
+    # print(sess.out)
 
 
 def main(_):

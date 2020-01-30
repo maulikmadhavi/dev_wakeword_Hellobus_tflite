@@ -69,6 +69,8 @@ def run_graph(wav_data, labels, input_layer_name, output_layer_name,
 
     # Sort to show labels in order of confidence
     top_k = predictions.argsort()[-num_top_predictions:][::-1]
+    print(labels)
+    print(top_k)
     for node_id in top_k:
       human_string = labels[node_id]
       score = predictions[node_id]

@@ -329,7 +329,7 @@ if __name__ == '__main__':
   parser.add_argument(
       '--data_dir',
       type=str,
-      default='/home/maulik/Documents/Database/data_speech_commands_v0.02/',
+      default='/home/maulik/Documents/Database/data_speech_commands_v0.02/new_data/',
       help="""\
       Where to download the speech training data to.
       """)
@@ -386,7 +386,7 @@ if __name__ == '__main__':
   parser.add_argument(
       '--clip_duration_ms',
       type=int,
-      default=1400,
+      default=800,
       help='Expected duration in milliseconds of the wavs',)
   parser.add_argument(
       '--window_size_ms',

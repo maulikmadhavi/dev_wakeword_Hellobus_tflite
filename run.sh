@@ -1,5 +1,5 @@
 
-datadir=/home/maulik/Documents/Database/data_speech_commands_v0.02
+datadir=/home/maulik/Documents/Database/data_speech_commands_v0.02/new_data
 wanted_words_list='busagent,hellobus,okagent,okbus'
 
 #python train.py --wanted_words=${wanted_words_list} --data_dir=${datadir} -batch_size=20 --save_step_interval=50 --how_many_training_steps=400,100
