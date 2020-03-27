@@ -1,10 +1,7 @@
-
 checkpoints/
 \__pycache__/
 \.idea/
 models/
-#models/*
-#models/**
 output/
 *.bin
 androind_project/
