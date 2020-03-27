@@ -1,25 +1,13 @@
 
+checkpoints/
+\__pycache__/
 \.idea/
-tmp/
-tmp/*
-tmp/**
+models/
+#models/*
+#models/**
+output/
 *.bin
+androind_project/
 android_project/\.gradle/buildOutputCleanup/cache\.properties
 *.lock
-tmp/logs/
-tmp/logs/pb_tensorboard/
-tmp/pretrained_model/
-tmp/retrain_logs/
-tmp/retrain_logs/data/
-tmp/retrain_logs/train/
-tmp/retrain_logs/validation/
-tmp/retrain_logs_transfer/
-tmp/retrain_logs_transfer/data/
-tmp/retrain_logs_transfer/train/
-tmp/retrain_logs_transfer/validation/
-tmp/speech_commands_train/
-tmp/speech_commands_train/logs/
-tmp/speech_commands_train_transfer/
-tmp/speech_dataset/
-tmp/speech_commands_train_transfer/frozen.pb
 

@@ -1,3 +1,7 @@
+#########################################
+# This code serve as the data processing.
+#
+#########################################
 import os
 import tensorflow as tf
 from subprocess import Popen, PIPE, DEVNULL

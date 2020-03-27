@@ -427,7 +427,7 @@ if __name__ == '__main__':
   parser.add_argument(
       '--summaries_dir',
       type=str,
-      default='tmp/retrain_logs_transfer',
+      default='models/retrain_logs_transfer',
       help='Where to save summary logs for TensorBoard.')
   parser.add_argument(
       '--wanted_words',
@@ -437,7 +437,7 @@ if __name__ == '__main__':
   parser.add_argument(
       '--train_dir',
       type=str,
-      default='tmp/speech_commands_train_transfer',
+      default='models/speech_commands_train_transfer',
       help='Directory to write event logs and checkpoint.')
   parser.add_argument(
       '--save_step_interval',
