@@ -329,7 +329,7 @@ if __name__ == '__main__':
   parser.add_argument(
       '--data_dir',
       type=str,
-      default='/home/maulik/Documents/Database/data_speech_commands_v0.02/new_data/',
+      default='/home/maulik/Documents/CORPUS/data_speech_commands_v0.02/new_data',
       help="""\
       Where to download the speech training data to.
       """)
