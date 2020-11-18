@@ -11,7 +11,7 @@ python utils/train.py  -batch_size=20 --save_step_interval=50 --how_many_trainin
 python pretrained_pb2npz.py 
 
 # To perfrom the transfer learning 
-python transfer.py
+python utils/transfer.py
 
 # Freeze the parameters 
 python utils/freeze.py \
