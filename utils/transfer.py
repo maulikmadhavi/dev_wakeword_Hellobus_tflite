@@ -329,7 +329,13 @@ if __name__ == '__main__':
   parser.add_argument(
       '--data_dir',
       type=str,
+<<<<<<< HEAD:transfer.py
       default='/home/maulik/Documents/Database/data_speech_commands_v0.02/new_dataaug3/',
+||||||| folder organize
+      default='/home/maulik/Documents/Database/data_speech_commands_v0.02/new_data/',
+=======
+      default='/home/maulik/Documents/CORPUS/data_speech_commands_v0.02/new_data',
+>>>>>>> maulik:utils/transfer.py
       help="""\
       Where to download the speech training data to.
       """)
