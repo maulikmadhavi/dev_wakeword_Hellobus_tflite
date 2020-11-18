@@ -37,3 +37,18 @@ use `run.sh`
 4. Do quick test 
 5. Convert to tflite
 
+
+# Running from docker
+
+To bulid  the container 
+```
+docker build . -t wakeup
+```
+
+Running training and testing file,i.e, `run.sh` within the container
+
+1. Run the container with `bash` entrypoint:
+```
+$ docker run -it wakeup bash
+```
+2. You will be inside root, then run `run.sh`.
