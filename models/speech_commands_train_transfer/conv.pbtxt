@@ -33,7 +33,7 @@ node {
   attr {
     key: "desired_samples"
     value {
-      i: 12800
+      i: 20800
     }
   }
 }
@@ -146,7 +146,7 @@ node {
             size: 2
           }
         }
-        tensor_content: "\0002\000\000\377\377\377\377"
+        tensor_content: "@Q\000\000\377\377\377\377"
       }
     }
   }
@@ -184,7 +184,7 @@ node {
     value {
       shape {
         dim {
-          size: 12800
+          size: 20800
         }
         dim {
           size: 1
@@ -645,7 +645,7 @@ node {
           size: -1
         }
         dim {
-          size: 3120
+          size: 5120
         }
       }
     }
@@ -688,7 +688,7 @@ node {
             size: 4
           }
         }
-        tensor_content: "\377\377\377\377N\000\000\000(\000\000\000\001\000\000\000"
+        tensor_content: "\377\377\377\377\200\000\000\000(\000\000\000\001\000\000\000"
       }
     }
   }
@@ -1403,7 +1403,7 @@ node {
             size: 2
           }
         }
-        tensor_content: "\377\377\377\377\000\303\000\000"
+        tensor_content: "\377\377\377\377\000@\001\000"
       }
     }
   }
@@ -1453,7 +1453,7 @@ node {
             size: 2
           }
         }
-        tensor_content: "\000\303\000\000\006\000\000\000"
+        tensor_content: "\000@\001\000\006\000\000\000"
       }
     }
   }
@@ -1621,7 +1621,7 @@ node {
     value {
       shape {
         dim {
-          size: 49920
+          size: 81920
         }
         dim {
           size: 6

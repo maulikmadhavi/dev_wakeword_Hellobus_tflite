@@ -78,8 +78,8 @@ import numpy as np
 from six.moves import xrange  # pylint: disable=redefined-builtin
 import tensorflow as tf
 
-import input_data
-import models
+from utils import input_data
+from utils import models
 from tensorflow.python.platform import gfile
 
 FLAGS = None
@@ -329,7 +329,7 @@ if __name__ == '__main__':
   parser.add_argument(
       '--data_dir',
       type=str,
-      default='/home/maulik/Documents/Database/data_speech_commands_v0.02/new_data/',
+      default='/home/maulik/Documents/Database/data_speech_commands_v0.02/new_dataaug3/',
       help="""\
       Where to download the speech training data to.
       """)
@@ -386,7 +386,7 @@ if __name__ == '__main__':
   parser.add_argument(
       '--clip_duration_ms',
       type=int,
-      default=800,
+      default=1300,
       help='Expected duration in milliseconds of the wavs',)
   parser.add_argument(
       '--window_size_ms',
