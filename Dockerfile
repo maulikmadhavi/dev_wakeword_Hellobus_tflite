@@ -12,4 +12,4 @@ WORKDIR /project
 # Copy entire project in working dir
 COPY src .
 
-CMD ["./project/run.sh"]
+CMD ["./project/run.sh"] # Or else you can run the command separately
