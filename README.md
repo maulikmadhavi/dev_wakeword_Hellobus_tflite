@@ -24,7 +24,7 @@ new_data/
  |-- okbus
  |-- _background_noise_
 ```
-
+You can record data and put inside these folders. _background_noise_ refers to the audio other than wakeword speech.
 # Process
 
 use `run.sh`
