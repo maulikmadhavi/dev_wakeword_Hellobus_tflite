@@ -1,22 +1,26 @@
-# Speech Commands Example
+# Wakeword Detection (Hellobus)
 
-This is a basic speech recognition example. For more information, see the
-tutorial at https://www.tensorflow.org/tutorials/sequences/audio_recognition
+A speech recognition system for detecting custom wakewords using TensorFlow transfer learning and TensorFlow Lite for mobile deployment.
 
+For more information, see the [TensorFlow audio recognition tutorial](https://www.tensorflow.org/tutorials/sequences/audio_recognition).
 
-# Requirements
-tensorflow==1.15.0
-Optional: speech command database (If you want to train again, https://www.tensorflow.org/datasets/catalog/speech_commands)
+## Requirements
 
-In `run.sh` file:
-```
-datadir=new_data # Directory where the speech data is stored
+- `tensorflow==1.15.0`
+- Optional: [Speech Commands dataset](https://www.tensorflow.org/datasets/catalog/speech_commands) (only needed to retrain from scratch)
+
+## Data Setup
+
+In the `run.sh` file, configure the data directory and target words:
+
+```bash
+datadir=new_data  # Directory where the speech data is stored
 wanted_words_list='busagent,hellobus,okagent,okbus'
 ```
 
- These two lines indicate directory and wanted words. The directory has 
+The data directory must follow this structure:
 
-``` 
+```
 new_data/
  |-- busagent
  |-- hellobus
@@ -24,31 +28,43 @@ new_data/
  |-- okbus
  |-- _background_noise_
 ```
-You can record data and put inside these folders. _background_noise_ refers to the audio other than wakeword speech.
-# Process
 
-use `run.sh`
+Record audio samples and place them in the corresponding folders. The `_background_noise_` folder contains audio that does not belong to any wakeword class.
 
+## Training Process
 
+Run the full pipeline using `run.sh`:
 
-1. Load pretrained model `pretrained_pb2npz.py`
-2. Run the transfer learning `transfer.py`
-3. Convert back to protobuffer `freeze.py `
-4. Do quick test 
-5. Convert to tflite
+1. Load pretrained model weights — `pretrained_pb2npz.py`
+2. Run transfer learning — `utils/transfer.py`
+3. Freeze the model to protobuffer format — `utils/freeze.py`
+4. Run a quick inference test — `utils/label_wav.py`
+5. Convert to TensorFlow Lite — `tflite_convert`
 
+## Running with Docker
 
-# Running from docker
-
-To bulid  the container 
-```
+**Build the container:**
+```bash
 docker build . -t wakeup
 ```
 
-Running training and testing file,i.e, `run.sh` within the container
+**Run training inside the container:**
 
-1. Run the container with `bash` entrypoint:
+1. Start the container with a bash entrypoint:
+```bash
+docker run -it wakeup bash
 ```
-$ docker run -it wakeup bash
+
+2. Inside the container, run the pipeline:
+```bash
+./run.sh
 ```
-2. You will be inside root, then run `run.sh`.
+
+## Large File Storage
+
+This repository uses [Git LFS](https://git-lfs.github.com/) to track large binary files (`.pb`, `.tflite`, `.npz`, `.ckpt`). Ensure Git LFS is installed before cloning:
+
+```bash
+git lfs install
+git clone <repo-url>
+```
