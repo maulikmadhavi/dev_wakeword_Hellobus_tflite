@@ -1,5 +1,7 @@
 # Wakeword Detection (Hellobus)
 
+> **Notice:** This project was developed several years ago and was building successfully at the time (around five years ago). Due to changes in dependencies and environments, it may no longer build without modification.
+
 A speech recognition system for detecting custom wakewords using TensorFlow transfer learning and TensorFlow Lite for mobile deployment.
 
 For more information, see the [TensorFlow audio recognition tutorial](https://www.tensorflow.org/tutorials/sequences/audio_recognition).
